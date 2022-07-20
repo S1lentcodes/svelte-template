@@ -26,7 +26,6 @@ export default defineConfig(({ mode }) => {
       }), 
       svelte(),
       isProduction && minifyHtml(),
-      // isProduction && viteCompression({algorithm: "brotliCompress", ext:".bz"})
     ],
     test: {
       globals: true,
