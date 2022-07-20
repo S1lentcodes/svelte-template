@@ -1,7 +1,9 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import WindiCSS from 'vite-plugin-windicss'
 import { minify } from "html-minifier";
+import Unocss from 'unocss/vite'
+import presetUno from '@unocss/preset-uno'
 
 const minifyHtml = () => {
   return {
@@ -18,10 +20,18 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
 
   return {
-    plugins: [WindiCSS(), svelte(),
+    plugins: [
+      Unocss({
+        presets: [ presetUno() ],
+      }), 
+      svelte(),
       isProduction && minifyHtml(),
       // isProduction && viteCompression({algorithm: "brotliCompress", ext:".bz"})
     ],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+    },
     base: './', // fivem nui needs to have local dir reference
     build: {
       minify: isProduction,
