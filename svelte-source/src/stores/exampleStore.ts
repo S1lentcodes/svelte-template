@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 import type { Writable } from 'svelte/store';
-import fetchNUI from '../utils/fetch';
+//import fetchNUI from '../utils/fetch';
 
 interface exampleState {
   show: Writable<boolean>

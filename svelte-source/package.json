@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "pnpm check && vite build",
     "preview": "vite preview --host",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest",
@@ -16,18 +16,18 @@
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@testing-library/svelte": "^3.2.2",
     "@tsconfig/svelte": "^3.0.0",
-    "@unocss/preset-uno": "^0.47.6",
-    "@unocss/reset": "^0.47.6",
+    "@unocss/preset-uno": "^0.48.0",
+    "@unocss/reset": "^0.48.0",
     "html-minifier": "^4.0.0",
     "jsdom": "^20.0.3",
     "svelte": "^3.55.0",
-    "svelte-check": "^2.10.2",
+    "svelte-check": "^3.0.1",
     "svelte-preprocess": "^5.0.0",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
-    "unocss": "0.47.6",
-    "vite": "4.0.1",
+    "unocss": "0.48.0",
+    "vite": "4.0.3",
     "vite-plugin-windicss": "^1.8.10",
-    "vitest": "^0.25.8"
+    "vitest": "^0.26.2"
   }
 }
