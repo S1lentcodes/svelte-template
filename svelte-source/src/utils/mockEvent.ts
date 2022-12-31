@@ -7,10 +7,7 @@ export default function mockEventCall(data: unknown = {}) {
 export function exampleCall() {
   setTimeout(() => {
     mockEventCall({
-      action: 'show',
-      data: {
-        header: "Some Header!",
-      },
+      action: 'open',
     });
-  }, 1000);  
+  }, 200);  
 };

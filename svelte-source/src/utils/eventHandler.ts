@@ -1,9 +1,9 @@
 import { onMount, onDestroy } from "svelte";
+import ExampleStore from '../stores/exampleStore';
 
 interface nuiMessage {
   data: {
     action: string,
-    topic?: string,
     [key: string]: any,
   },
 }
@@ -11,6 +11,8 @@ interface nuiMessage {
 export function EventHandler() {
   function mainEvent(event: nuiMessage) {
     switch (event.data.action) {
+      case "open":
+        ExampleStore.receiveShowMessage();
     }
   }
 
@@ -18,8 +20,15 @@ export function EventHandler() {
   onDestroy(() => window.removeEventListener("message", mainEvent));
 }
 
-export function handleKeyUp(event: KeyboardEvent) {
-  const charCode = event.key;
-  if (charCode == "Escape") {
+// Handle when the user hits Escape on there keyboard, then the ui should close
+export function HandleKeyUp() {
+  function keyEvent(event:KeyboardEvent) {
+    const charCode = event.key;
+    if (charCode == "Escape") {
+      ExampleStore.closeUI();
+    }
   }
+
+  onMount(() => window.addEventListener("keyup", keyEvent));
+  onDestroy(() => window.removeEventListener("keyup", keyEvent));
 }
